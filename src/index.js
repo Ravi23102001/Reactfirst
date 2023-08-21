@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Ravi from './Ravi';
+import List from './List';
+import Props from './Props';
+import Model from './card/Model';
+import FunTodo from './FunTodo';
+
+  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    
+    {/* <Ravi/> */}
+    {/* <Props/> */}
+    {/* <Model/> */}
+    <FunTodo/>
+
+
+    {/* <List name={"ravi"}/> */}
+
+    {/* <App /> */}
+   
   </React.StrictMode>
 );
 
