@@ -3,7 +3,7 @@ import React from "react";
 import "./List.css";
 
 const List = (probs) => {
-  const { data, setData, correction, del, inpVal, setInpVal, submit } = probs;
+  const { data, setData, correction, del, inpVal, setInpVal, submit, use} = probs;
   // console.log(probs.trial)
   // const trial = [
   //   { id: 1, name: "Ravi", checked: true },
@@ -43,6 +43,7 @@ const List = (probs) => {
         <div className="d-flex p-2 gap-2">
           <input
             type="text"
+            ref={use}
             placeholder="Add Item"
             className="form-control"
             value={inpVal}
@@ -61,6 +62,7 @@ const List = (probs) => {
             {data.map((item) => (
               <li className="p-3 list-unstyled mx-auto" key={item.id}>
                 <input
+               
                   type="checkbox"
                   id={item.name}
                   checked={item.checked}

@@ -2,21 +2,19 @@ import React from "react";
 import List from "./List";
 import Search from "./Search";
 import { useState } from "react";
+import { useRef } from "react";
 
 function FunTodo() {
-  // window.onload=()=>{
-  //   console.log(localStorage.getItem("todo"))
-  //   data=JSON.parse(localStorage.getItem("todo"))
-  // }
+  const use=useRef()
+
   // console.log(JSON.parse(localStorage.getItem("todo")))
-  const trial = JSON.parse(localStorage.getItem("todo"))
-    // data=JSON.parse(localStorage.getItem("todo"))
-    //   { id: 1, name: "Ravi", checked: true },
-    //   { id: 2, name: "It's", checked: true },
-    //   { id: 3, name: "Me", checked: true },
-    //   { id: 4, name: "Think Positive", checked: true },
-    //   { id: 5, name: "Avoid Negative", checked: true },
-  
+  const trial = JSON.parse(localStorage.getItem("todo"));
+  // data=JSON.parse(localStorage.getItem("todo"))
+  //   { id: 1, name: "Ravi", checked: true },
+  //   { id: 2, name: "It's", checked: true },
+  //   { id: 3, name: "Me", checked: true },
+  //   { id: 4, name: "Think Positive", checked: true },
+  //   { id: 5, name: "Avoid Negative", checked: true },
 
   let [data, setData] = useState(trial);
   const add = (item) => {
@@ -59,7 +57,7 @@ function FunTodo() {
   };
 
   const [inpVal, setInpVal] = useState("");
-  const [search, setSearch]= useState("");
+  const [search, setSearch] = useState("");
   // console.log(inpVal)
 
   const submit = (e) => {
@@ -67,23 +65,27 @@ function FunTodo() {
     if (!inpVal) return;
     console.log(inpVal, "jj");
     add(inpVal);
-    setInpVal('');
+    use.current.focus()
+    setInpVal("");
 
     // alert("hai");
   };
 
   return (
     <>
-    <Search search={search} setSearch={setSearch}/>
-    <List
-      data={data.filter((data)=>(data.name.toLowerCase()).includes(search.toLowerCase()))}  //search la ullathaiyum data la ullathaiyum filter pannum
-      setData={setData}
-      correction={correction}
-      del={del}
-      inpVal={inpVal}
-      setInpVal={setInpVal}
-      submit={submit}
-    />
+      <Search search={search} setSearch={setSearch} />
+      <List
+        data={data.filter((data) =>
+          data.name.toLowerCase().includes(search.toLowerCase())
+        )} //search la ullathaiyum data la ullathaiyum filter pannum
+        setData={setData}
+        correction={correction}
+        del={del}
+        inpVal={inpVal}
+        setInpVal={setInpVal}
+        use={use}
+        submit={submit}
+      />
     </>
   );
 }

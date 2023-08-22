@@ -4,21 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Ravi from './Ravi';
-import List from './List';
+import List from './Todo/List';
 import Props from './Props';
 import Model from './card/Model';
-import FunTodo from './FunTodo';
+import FunTodo from './Todo/FunTodo';
+import Design from './Task.js/Design';
+import Useref from './Useref';
 
   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Design/>
+    <Useref/>
+
     
     {/* <Ravi/> */}
     {/* <Props/> */}
     {/* <Model/> */}
     <FunTodo/>
+
 
 
     {/* <List name={"ravi"}/> */}
