@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "ravi",
+      "checked": true
+    },
+    {
+      "id": 2,
+      "name": "It's",
+      "checked": false
+    },
+    {
+      "id": 3,
+      "name": "Me",
+      "checked": true
+    },
+    {
+      "id": 4,
+      "name": "ffff",
+      "checked": false
+    },
+    {
+      "id": 5,
+      "name": "html",
+      "checked": false
+    },
+    {
+      "id": 6,
+      "name": "css",
+      "checked": false
+    },
+    {
+      "id": 7,
+      "name": "om sai ram",
+      "checked": false
+    },
+    {
+      "id": 8,
+      "name": "hh",
+      "checked": false
+    }
+   
+  ]
+}

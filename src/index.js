@@ -10,20 +10,23 @@ import Model from './card/Model';
 import FunTodo from './Todo/FunTodo';
 import Design from './Task.js/Design';
 import Useref from './Useref';
+import FunTodoser from './TodoServer copy/Todo/FunTodoser';
 
   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Design/>
-    <Useref/>
+    {/* <Design/> */}
+    {/* <Useref/> */}
 
     
     {/* <Ravi/> */}
     {/* <Props/> */}
     {/* <Model/> */}
-    <FunTodo/>
+    {/* <FunTodo/> */}
+    <FunTodoser/>
+
 
 
 

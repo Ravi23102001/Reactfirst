@@ -3,12 +3,13 @@ import List from "./List";
 import Search from "./Search";
 import { useState } from "react";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 function FunTodo() {
   const use=useRef()
 
   // console.log(JSON.parse(localStorage.getItem("todo")))
-  const trial = JSON.parse(localStorage.getItem("todo"));
+  // const trial = JSON.parse(localStorage.getItem("todo"));
   // data=JSON.parse(localStorage.getItem("todo"))
   //   { id: 1, name: "Ravi", checked: true },
   //   { id: 2, name: "It's", checked: true },
@@ -16,7 +17,7 @@ function FunTodo() {
   //   { id: 4, name: "Think Positive", checked: true },
   //   { id: 5, name: "Avoid Negative", checked: true },
 
-  let [data, setData] = useState(trial);
+  let [data, setData] = useState(JSON.parse(localStorage.getItem("todo"))||[]);
   const add = (item) => {
     console.log(item, "hs");
     const id = data.length ? data[data.length - 1].id + 1 : 1;
@@ -59,6 +60,12 @@ function FunTodo() {
   const [inpVal, setInpVal] = useState("");
   const [search, setSearch] = useState("");
   // console.log(inpVal)
+
+
+  useEffect(() => {
+      console.log("ravindra")
+  
+  },[]);
 
   const submit = (e) => {
     e.preventDefault();
