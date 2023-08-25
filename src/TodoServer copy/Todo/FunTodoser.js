@@ -6,9 +6,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import request from "./Request";
 
-
 function FunTodoser() {
-  
   const use = useRef();
   const API_URL = "http://localhost:3000/data";
   let [data, setData] = useState([]);
@@ -25,7 +23,7 @@ function FunTodoser() {
         if (response.ok) {
           const jsonItm = await response.json();
           console.log(jsonItm);
-          setData(jsonItm);
+          setData(jsonItm); // api la ulla data va eduthu set data moolam data kku assign pannanum
         } else {
           throw Error("data is not find");
         }
@@ -45,23 +43,22 @@ function FunTodoser() {
     console.log(id);
     const newIt = { id, name: item, checked: false };
     console.log(newIt);
-    const list = [...data, newIt];
-    setData(list);
+    const list = [...data, newIt]; //existing data + new data
+    setData(list); // full data assign to data state
     // localStorage.setItem("todo", JSON.stringify(list));
     console.log(data);
 
-    const post={
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+    const post = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify(newIt)
-    }
-const result=await request(API_URL,post)
-
+      body: JSON.stringify(newIt),
+    };
+    const result = await request(API_URL, post);
   };
 
-  const correction = (id) => {
+  const correction = async (id) => {
     const change = data.map((e) =>
       e.id === id ? { ...e, checked: !e.checked } : e
     );
@@ -69,6 +66,18 @@ const result=await request(API_URL,post)
     // localStorage.setItem("todo", JSON.stringify(change));
 
     console.log(change);
+
+    const reqChange = change.filter((data) => data.id===id);
+    // console.log(reqChange, "req");
+    const update={
+      method:"PATCH",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({checked:reqChange[0].checked})
+    }
+    const upUrl=`${API_URL}/${id}`
+    const result= await request(upUrl,update)
   };
 
   const del = (id) => {
@@ -87,8 +96,6 @@ const result=await request(API_URL,post)
     add(inpVal);
     use.current.focus();
     setInpVal("");
-
-  
   };
 
   return (
