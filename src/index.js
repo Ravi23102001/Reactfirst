@@ -12,6 +12,9 @@ import Design from './Task.js/Design';
 import Useref from './Useref';
 import FunTodoser from './TodoServer copy/Todo/FunTodoser';
 
+import FunMain from './Fetchtask/FunMain';
+
+
   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,7 +28,10 @@ root.render(
     {/* <Props/> */}
     {/* <Model/> */}
     {/* <FunTodo/> */}
-    <FunTodoser/>
+    {/* <FunTodoser/> */}
+
+    
+    <FunMain/>
 
 
 

@@ -53,7 +53,7 @@ function FunTodoser() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newIt),
+      body: JSON.stringify(newIt),  // ithu object 
     };
     const result = await request(API_URL, post);
   };
@@ -65,26 +65,37 @@ function FunTodoser() {
     setData(change);
     // localStorage.setItem("todo", JSON.stringify(change));
 
-    console.log(change);
+    console.log(change, "change");
 
-    const reqChange = change.filter((data) => data.id===id);
-    // console.log(reqChange, "req");
+    const reqChange = change.filter((data) => data.id===id);  //ithu array of object ahh irukkum
+    console.log(reqChange, "req");
+
+    
     const update={
       method:"PATCH",
       headers:{
         "Content-Type":"application/json"
       },
-      body:JSON.stringify({checked:reqChange[0].checked})
+      body:JSON.stringify(...reqChange) //object ahh irukkum 
+      
+      // body:JSON.stringify({checked:reqChange[0].checked})
     }
     const upUrl=`${API_URL}/${id}`
     const result= await request(upUrl,update)
   };
 
-  const del = (id) => {
+  const del =async (id) => {
     const remind = data.filter((e) => e.id !== id);
     console.log(remind);
-    setData(remind);
+    setData(remind); //front la delete agum
     // localStorage.setItem("todo", JSON.stringify(remind));
+
+
+    const del={
+      method:"DELETE"  //server la delete agum
+    }
+    const delURL=`${API_URL}/${id}`
+    const result= await request (delURL,del)
   };
 
   // console.log(inpVal)
@@ -113,7 +124,7 @@ function FunTodoser() {
         {!error && !loading && (
           <List
             data={data.filter((data) =>
-              data.name.toLowerCase().includes(search.toLowerCase())
+              data.name.toLowerCase().includes(search.toLowerCase())  // search kaga ithu 
             )} //search la ullathaiyum data la ullathaiyum filter pannum
             setData={setData}
             correction={correction}

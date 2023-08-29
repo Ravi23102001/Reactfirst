@@ -18,6 +18,7 @@ function FunTodo() {
   //   { id: 5, name: "Avoid Negative", checked: true },
 
   let [data, setData] = useState(JSON.parse(localStorage.getItem("todo"))||[]);
+  
   const add = (item) => {
     console.log(item, "hs");
     const id = data.length ? data[data.length - 1].id + 1 : 1;

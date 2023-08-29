@@ -2,42 +2,22 @@
   "data": [
     {
       "id": 1,
-      "name": "ravi",
+      "name": "om sai ram",
       "checked": true
     },
     {
       "id": 2,
-      "name": "It's",
+      "name": "ravi",
       "checked": true
     },
     {
       "id": 3,
-      "name": "Me",
-      "checked": true
-    },
-    {
-      "id": 4,
-      "name": "ffff",
-      "checked": true
-    },
-    {
-      "id": 5,
       "name": "html",
       "checked": false
     },
     {
-      "id": 6,
+      "id": 4,
       "name": "css",
-      "checked": true
-    },
-    {
-      "id": 7,
-      "name": "om sai ram",
-      "checked": false
-    },
-    {
-      "id": 8,
-      "name": "hh",
       "checked": false
     }
   ]

@@ -1,0 +1,10 @@
+.select{
+    background-color: gray;
+
+}
+button{
+    color:white !important;
+    width: 33.33%;
+    padding: 8px;
+    background-color: #323539;
+}
